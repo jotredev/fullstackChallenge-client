@@ -8,7 +8,7 @@ export default function NotFound() {
       <h3 className="text-2xl text-gray-500 mb-6">
         !Ooooops página no encontrada!
       </h3>
-      <Link to="/" className="text-lg hover:underline">
+      <Link to="/admin/inicio" className="text-lg hover:underline">
         Ir a inicio
       </Link>
     </div>

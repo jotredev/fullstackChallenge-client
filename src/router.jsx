@@ -5,21 +5,25 @@ import LayoutAuth from "./layouts/LayoutAuth";
 // Pages
 import Login from "./pages/auth/Login";
 import Home from "./pages/Home";
-import Users from "./pages/Users";
+import Users from "./pages/users/Users";
+import CreateUser from "./pages/users/CreateUser";
+import UserDetails from "./pages/users/UserDetails";
 import NotFound from "./pages/NotFound";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/auth",
     element: <LayoutAuth />,
     children: [{ index: true, element: <Login /> }],
   },
   {
-    path: "/",
+    path: "/admin",
     element: <LayoutAdmin />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "usuarios", element: <Users /> },
+      { path: "/admin/inicio", element: <Home /> },
+      { path: "/admin/usuarios", element: <Users /> },
+      { path: "/admin/usuarios/:id", element: <UserDetails /> },
+      { path: "/admin/usuarios/registrar", element: <CreateUser /> },
     ],
   },
   {
@@ -27,3 +31,5 @@ export const router = createBrowserRouter([
     element: <NotFound />,
   },
 ]);
+
+export default router;
