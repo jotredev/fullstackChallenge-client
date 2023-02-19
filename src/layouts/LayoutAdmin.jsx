@@ -13,7 +13,7 @@ export default function LayoutAdmin() {
           <div className="w-full lg:w-1/6">
             <Sidebar />
           </div>
-          <main className="flex-1 p-6 container mx-auto">
+          <main className="flex-1 p-6 container mx-auto min-h-screen overflow-y-scroll">
             <Outlet />
           </main>
         </div>

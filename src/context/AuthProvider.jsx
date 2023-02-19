@@ -7,6 +7,8 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
   const [isAdmin, setIsAdmin] = useState(false);
+  const [postsCreator, setPostsCreator] = useState(false);
+  const [postsEditor, setPostsEditor] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,11 +36,21 @@ const AuthProvider = ({ children }) => {
             (permission) => permission.name === "admin"
           );
 
-          {
-            permAdmin ? setIsAdmin(true) : setIsAdmin(false);
-          }
+          const permPostsCreator = data.permissions.some(
+            (permission) => permission.name === "crd_posts"
+          );
+
+          const permPostsEditor = data.permissions.some(
+            (permission) => permission.name === "update_posts"
+          );
+
+          permAdmin ? setIsAdmin(true) : setIsAdmin(false);
+          permPostsCreator ? setPostsCreator(true) : setPostsCreator(false);
+          permPostsEditor ? setPostsEditor(true) : setPostsEditor(false);
         } else {
           setIsAdmin(false);
+          setPostsCreator(false);
+          setPostsEditor(false);
         }
         setAuth(data);
       } catch (error) {
@@ -60,6 +72,8 @@ const AuthProvider = ({ children }) => {
         auth,
         setAuth,
         isAdmin,
+        postsCreator,
+        postsEditor,
         logout,
       }}
     >

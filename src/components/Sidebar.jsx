@@ -5,7 +5,6 @@ import {
   RiTeamLine,
   RiLogoutCircleRLine,
   RiMenuFill,
-  RiGitRepositoryCommitsLine,
 } from "react-icons/ri";
 import useAuth from "../hooks/useAuth";
 
@@ -18,7 +17,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="h-screen overflow-y-scroll bg-white flex flex-col justify-between rounded-tr-xl rounded-br-xl">
+    <aside className="min-h-screen overflow-y-scroll bg-white flex flex-col justify-between rounded-tr-xl rounded-br-xl">
       <div>
         <div className="text-center my-10">
           <Link to="/" className="text-2xl font-black">
@@ -60,16 +59,6 @@ export default function Sidebar() {
               </NavLink>
             </>
           )}
-          <NavLink
-            to="/admin/posts"
-            className={({ isActive }) =>
-              isActive
-                ? "flex items-center gap-2 py-2 px-4 bg-gray-100 rounded-l-full transition-colors font-medium"
-                : "flex items-center gap-2 py-2 px-4 hover:bg-gray-100 rounded-l-full transition-colors"
-            }
-          >
-            <RiGitRepositoryCommitsLine /> Posts
-          </NavLink>
         </nav>
       </div>
       <div className="p-1">

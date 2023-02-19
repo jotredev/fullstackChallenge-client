@@ -9,8 +9,15 @@ import Users from "./pages/users/Users";
 import CreateUser from "./pages/users/CreateUser";
 import UserDetails from "./pages/users/UserDetails";
 import NotFound from "./pages/NotFound";
+import CreatePost from "./pages/posts/CreatePost";
+import EditPost from "./pages/posts/EditPost";
+import Logs from "./pages/Logs";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
   {
     path: "/auth",
     element: <LayoutAuth />,
@@ -24,6 +31,9 @@ const router = createBrowserRouter([
       { path: "/admin/usuarios", element: <Users /> },
       { path: "/admin/usuarios/:id", element: <UserDetails /> },
       { path: "/admin/usuarios/registrar", element: <CreateUser /> },
+      { path: "/admin/posts/crear-post", element: <CreatePost /> },
+      { path: "/admin/posts/:id", element: <EditPost /> },
+      { path: "/admin/registros", element: <Logs /> },
     ],
   },
   {
